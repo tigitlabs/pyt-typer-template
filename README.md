@@ -7,6 +7,8 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 
 - [x] Add requirements with conda
 - [x] Add logging
+- [x] Add linting
+- [ ] Add formatting
 - [ ] Add type checking
 - [ ] Add three CLI commands with typer
 - [ ] Add tests
@@ -20,7 +22,14 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 
 ### CI/CD
 
-Run test on Ubuntu and Windows
+- Run test on Ubuntu and Windows
+- pre-commit hooks
+  - black
+  - flake8
+  - mypy
+  - pytest
+  - coverage
+
 
 ### Python
 - dependencies with [conda](https://docs.conda.io/en/latest/)
@@ -30,12 +39,6 @@ Run test on Ubuntu and Windows
 - code coverage with [coverage](https://coverage.readthedocs.io/en/coverage-5.5/)
 - code formatting with [black](https://black.readthedocs.io/en/stable/)
 - type checking with [mypy](https://mypy.readthedocs.io/en/stable/)
-- [pre-commit](https://pre-commit.com/) hooks
-  - black
-  - flake8
-  - mypy
-  - pytest
-  - coverage
 
 ### CLI
 - [Typer](https://typer.tiangolo.com/)
