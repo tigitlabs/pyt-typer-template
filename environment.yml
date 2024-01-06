@@ -1,0 +1,15 @@
+name: typer_template
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python=3.10.13
+  - loguru
+  - typer
+  - flake8
+  - pytest
+  - pytest-cov
+  - pytest-mock
+  - black
+  - mypy
