@@ -64,6 +64,14 @@ Designed to work with Github Codespaces
 
 ### Install dependencies
 
+### Running in Codespace
+
+```bash
+  conda activate $CONDA_ENV_NAME
+```
+
+### Not in Codespace
+
 Install conda if not already installed or not running in a Codespace
 
 ```bash
@@ -79,7 +87,7 @@ Create conda environment
 
 ```bash
   conda env create --file environment.yml
-  conda activate typer-template
+  conda activate typer_template
 ```
 
 Update conda environment with new dependencies
