@@ -1,4 +1,4 @@
-name: typer-template
+name: typer_template
 channels:
   - defaults
   - conda-forge

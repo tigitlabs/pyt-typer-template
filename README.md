@@ -79,7 +79,7 @@ Create conda environment
 
 ```bash
   conda env create --file environment.yml
-  conda activate typer-template
+  conda activate typer_template
 ```
 
 Update conda environment with new dependencies
