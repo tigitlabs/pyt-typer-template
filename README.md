@@ -64,6 +64,14 @@ Designed to work with Github Codespaces
 
 ### Install dependencies
 
+### Running in Codespace
+
+```bash
+  conda activate $CONDA_ENV_NAME
+```
+
+### Not in Codespace
+
 Install conda if not already installed or not running in a Codespace
 
 ```bash

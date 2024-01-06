@@ -18,8 +18,3 @@ else
     ssh-keyscan github.com >> ~/.ssh/known_hosts
     ssh -T git@github.com
 fi
-
-# Create and activate conda environment
-echo "🧪 Create and activate conda environment"
-conda env create -f environment.yml
-conda activate $CONDA_ENV_NAME

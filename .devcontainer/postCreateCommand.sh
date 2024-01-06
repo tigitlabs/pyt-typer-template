@@ -4,7 +4,6 @@ echo "🏗️ Post start command"
 # Check if the script is running on GitHub Codespaces
 if [[ -n "${CODESPACES}" || -n "${GITHUB_CODESPACE_TOKEN}" ]]; then
     printf "Running in GitHub Codespaces.\nNo need to run any commands."
-    exit 0
 else
     ENV_FILE=".devcontainer/.env"
     echo "Running on local host"
@@ -25,3 +24,9 @@ else
         exit 1
     fi
 fi
+
+# Create and activate conda environment
+echo "🏃‍♂️ Run conda init"
+conda init bash
+echo "🧪 Create and activate conda environment"
+conda env create -f environment.yml
