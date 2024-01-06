@@ -75,5 +75,6 @@ Install conda if not already installed or not running in a Codespace
 Create conda environment
 
 ```bash
-  conda env create -f environment.yml
+  conda env create --file environment.yml
+  conda activate typer-template
 ```
