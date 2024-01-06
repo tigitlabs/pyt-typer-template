@@ -5,8 +5,8 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 
 ## Roadmap
 
-- [ ] Add requirements with conda
-- [ ] Add logging
+- [x] Add requirements with conda
+- [x] Add logging
 - [ ] Add type checking
 - [ ] Add three CLI commands with typer
 - [ ] Add tests
@@ -24,7 +24,7 @@ Run test on Ubuntu and Windows
 
 ### Python
 - dependencies with [conda](https://docs.conda.io/en/latest/)
-- Logging with [loguru]
+- Logging with [loguru](https://loguru.readthedocs.io/en/stable/)
 - linting with [flake8](https://flake8.pycqa.org/en/latest/)
 - testing with [pytest](https://docs.pytest.org/en/stable/)
 - code coverage with [coverage](https://coverage.readthedocs.io/en/coverage-5.5/)
@@ -77,4 +77,10 @@ Create conda environment
 ```bash
   conda env create --file environment.yml
   conda activate typer-template
+```
+
+Update conda environment with new dependencies
+
+```bash
+  conda env update
 ```
