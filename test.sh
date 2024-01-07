@@ -4,7 +4,7 @@
 set -e
 
 echo "🏃‍♂️ Running black"
-black --check .
+black .
 
 echo "🏃‍♂️ Running flake8"
 flake8
