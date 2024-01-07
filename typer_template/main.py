@@ -1,23 +1,40 @@
 # main.py
 
-import sys
+import time
 import typer
 from loguru import logger
+from rich.progress import track
+from typer_template import _logger
 
-LOG_LEVEL = "WARNING"
-LOG_FORMAT = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS zz}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
+app = typer.Typer()
 
 
 # Configure Loguru
-def setup_logging():
-    # Remove default logger to stdout
-    logger.remove()
-    # Add logger for stdout for certain levels (e.g., DEBUG and INFO)
-    logger.add("debug.log", colorize=False, format=LOG_FORMAT, level="DEBUG")
-    logger.add(sys.stdout, colorize=True, format=LOG_FORMAT, level=LOG_LEVEL)
+@app.callback()
+def init_logging(verbose: bool = False):
+    """
+    Typer CLI Template Project
+    """
+    log_level = "ERROR"
+    if verbose:
+        log_level = "DEBUG"
+    _logger.setup_logging(log_level)
 
 
-def main(name: str):
+@app.command()
+def init():
+    """Initialize the application"""
+    print("Initializing...")
+    total = 0
+    for value in track(range(100), description="Processing..."):
+        # Fake processing time
+        time.sleep(0.01)
+        total += 1
+    print(f"Processed {total} things.")
+
+
+@app.command()
+def hello(name: str):
     print(f"Hello {name}")
     logger.debug("That's it, beautiful and simple logging, debug!")
     logger.info("That's it, beautiful and simple logging, info!")
@@ -26,5 +43,4 @@ def main(name: str):
 
 
 if __name__ == "__main__":
-    setup_logging()
-    typer.run(main)
+    app()
