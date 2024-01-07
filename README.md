@@ -55,7 +55,7 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
   - clean
     - remove files
 
-### Devenv
+### Dev Environment
 
 Designed to work with Github Codespaces
 
