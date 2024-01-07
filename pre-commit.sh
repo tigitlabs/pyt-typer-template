@@ -13,4 +13,4 @@ echo "🏃‍♂️ Running mypy"
 # Static type checking with mypy
 mypy --ignore-missing-imports .
 echo "🏃‍♂️ Running pytest"
-pytest
+pytest --durations=0 --cov

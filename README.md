@@ -8,12 +8,11 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 - [x] Add requirements with conda
 - [x] Add logging
 - [x] Add linting
-- [ ] Add formatting
-- [ ] Add type checking
-- [ ] Add three CLI commands with typer
-- [ ] Add tests
-- [ ] Add code coverage
-- [ ] Add code formatting
+- [x] Add formatting
+- [x] Add type checking
+- [x] Add three CLI commands with typer
+- [x] Add tests
+- [X] Add code coverage
 - [ ] Add pre-commit hooks
 - [ ] Add CI/CD for Ubuntu and Windows
 - [ ] Convert to a cookiecutter template
