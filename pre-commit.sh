@@ -3,6 +3,9 @@
 # This script is used to run pre-commit checks on the repository.
 set -e
 
+echo "🏃‍♂️ Running markdownlint"
+markdownlint *.md
+
 echo "🏃‍♂️ Running black"
 black .
 

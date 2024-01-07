@@ -25,6 +25,8 @@ else
     fi
 fi
 
+echo "🏃‍♂️ Install markdownlint"
+npm install -g markdownlint-cli
 # Create and activate conda environment
 echo "🏃‍♂️ Run conda init"
 conda init bash
