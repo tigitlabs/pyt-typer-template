@@ -29,8 +29,8 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
   - pytest
   - coverage
 
-
 ### Python
+
 - dependencies with [conda](https://docs.conda.io/en/latest/)
 - Logging with [loguru](https://loguru.readthedocs.io/en/stable/)
 - linting with [flake8](https://flake8.pycqa.org/en/latest/)
@@ -40,6 +40,7 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 - type checking with [mypy](https://mypy.readthedocs.io/en/stable/)
 
 ### CLI
+
 - [Typer](https://typer.tiangolo.com/)
 
 - Printing with [rich](https://rich.readthedocs.io/en/latest/)
@@ -53,7 +54,6 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
     - print results with progress bar
   - clean
     - remove files
-
 
 ### Devenv
 
