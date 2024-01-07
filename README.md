@@ -13,7 +13,7 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 - [x] Add three CLI commands with typer
 - [x] Add tests
 - [X] Add code coverage
-- [ ] Add pre-commit hooks
+- [x] Add pre-commit hooks
 - [ ] Add CI/CD for Ubuntu and Windows
 - [ ] Convert to a cookiecutter template
 
