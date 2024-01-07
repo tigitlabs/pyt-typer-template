@@ -8,13 +8,12 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 - [x] Add requirements with conda
 - [x] Add logging
 - [x] Add linting
-- [ ] Add formatting
-- [ ] Add type checking
-- [ ] Add three CLI commands with typer
-- [ ] Add tests
-- [ ] Add code coverage
-- [ ] Add code formatting
-- [ ] Add pre-commit hooks
+- [x] Add formatting
+- [x] Add type checking
+- [x] Add three CLI commands with typer
+- [x] Add tests
+- [X] Add code coverage
+- [x] Add pre-commit hooks
 - [ ] Add CI/CD for Ubuntu and Windows
 - [ ] Convert to a cookiecutter template
 
@@ -30,8 +29,8 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
   - pytest
   - coverage
 
-
 ### Python
+
 - dependencies with [conda](https://docs.conda.io/en/latest/)
 - Logging with [loguru](https://loguru.readthedocs.io/en/stable/)
 - linting with [flake8](https://flake8.pycqa.org/en/latest/)
@@ -41,6 +40,7 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 - type checking with [mypy](https://mypy.readthedocs.io/en/stable/)
 
 ### CLI
+
 - [Typer](https://typer.tiangolo.com/)
 
 - Printing with [rich](https://rich.readthedocs.io/en/latest/)
@@ -55,8 +55,7 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
   - clean
     - remove files
 
-
-### Devenv
+### Dev Environment
 
 Designed to work with Github Codespaces
 

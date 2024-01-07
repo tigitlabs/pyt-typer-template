@@ -18,3 +18,7 @@ else
     ssh-keyscan github.com >> ~/.ssh/known_hosts
     ssh -T git@github.com
 fi
+
+
+echo "🧪 Activate the conda environment by running:"
+echo "conda activate $CONDA_ENV_NAME"
