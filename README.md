@@ -59,6 +59,43 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 
 Designed to work with Github Codespaces
 
+#### Working in a Codespace
+
+You can create a Codespace by clicking the green button at the top of the repository.  
+Or use the Github CLI
+
+```bash
+gh cs create --repo tigitlabs/pyt-typer-template --branch dev --display-name pyt-typer-template --machine premiumLinux
+```
+
+Machine options:
+
+- basicLinux32gb
+  - RAM: 8 GB
+  - Cores: 2
+  - Disk Space: 32 GB
+- standardLinux32gb
+  - RAM: 16 GB
+  - Cores: 4
+  - Disk Space: 32 GB
+- premiumLinux
+  - RAM: 32 GB
+  - Cores: 8
+  - Disk Space: 64 GB
+- largePremiumLinux
+  - RAM: 64 GB
+  - Cores: 16
+  - Disk Space: 128 GB
+
+Query Codespace machines options
+
+```bash
+gh api \
+-H "Accept: application/vnd.github+json" \
+-H "X-GitHub-Api-Version: 2022-11-28" \
+/repos/tigitlabs/pyt-typer-template/codespaces/machines
+```
+
 ## Usage
 
 ### Install dependencies
