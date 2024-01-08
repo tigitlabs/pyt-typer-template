@@ -6,6 +6,9 @@ set -e
 echo "🏃‍♂️ Running markdownlint"
 markdownlint *.md
 
+echo "🏃‍♂️ Running yamllint"
+yamllint .
+
 echo "🏃‍♂️ Running black"
 black .
 
