@@ -1,0 +1,15 @@
+extends: default
+
+rules:
+  line-length:
+    max: 120
+  indentation:
+    spaces: 2           # Use 2 spaces for indentation
+    indent-sequences: consistent
+  trailing-spaces: enable
+  key-duplicates: enable
+  truthy: disable
+
+ignore: |
+  # Ignore these paths
+  .git

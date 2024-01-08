@@ -1,0 +1,37 @@
+---
+
+name: Python CI
+
+on:
+  pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10
+
+    - name: Install conda
+      run: |
+        mkdir -p $HOME/miniconda3
+        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+        bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+        rm -rf ~/miniconda3/miniconda.sh
+        ~/miniconda3/bin/conda init bash
+        # Export to GITHUB_PATH
+        echo "$HOME/miniconda3/bin" >> $GITHUB_PATH
+
+    - name: Create conda environment
+      run: |
+        conda env create --file environment.yml
+
+    - name: Activate conda environment
+      run: |
+        conda init bash
+        conda activate typer_template
