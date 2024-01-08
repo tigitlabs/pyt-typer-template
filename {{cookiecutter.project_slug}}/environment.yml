@@ -1,6 +1,6 @@
 ---
 
-name: typer_template
+name: {{cookiecutter.project_slug}}
 channels:
   - defaults
   - conda-forge
