@@ -76,3 +76,11 @@ jobs:
         conda init bash
         conda activate typer_template
         pytest --durations=0 --cov
+
+    - name: Run pre-commit
+      run: |
+        # This redundant step is just to make sure that the pre-commit hook is working
+        source ~/miniconda3/bin/activate
+        conda init bash
+        conda activate typer_template
+        ./pre-commit.sh
