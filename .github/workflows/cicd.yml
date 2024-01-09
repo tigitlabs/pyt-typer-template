@@ -17,70 +17,40 @@ jobs:
       with:
         python-version: 3.10.13
 
+    - name: Install requierments
+      run: |
+        pip install -r requierments.txt
+
     - name: Install Markdownlint
       run: |
         npm install -g markdownlint-cli
+
 
     - name: Run markdownlint
       run: |
         markdownlint .
 
-    - name: Install conda
-      run: |
-        mkdir -p $HOME/miniconda3
-        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-        bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-        rm -rf ~/miniconda3/miniconda.sh
-        source ~/miniconda3/bin/activate
-        ~/miniconda3/bin/conda init bash
-        # Export to GITHUB_PATH
-        echo "$HOME/miniconda3/bin" >> $GITHUB_PATH
-
-    - name: Create conda environment
-      run: |
-        source ~/miniconda3/bin/activate
-        conda init bash
-        conda env create --file environment.yml
-
     - name: Run yamllint
       run: |
-        source ~/miniconda3/bin/activate
-        conda init bash
-        conda activate typer_template
         yamllint .
 
     - name: Run black
       run: |
-        source ~/miniconda3/bin/activate
-        conda init bash
-        conda activate typer_template
         black --check .
 
     - name: Run flake8
       run: |
-        source ~/miniconda3/bin/activate
-        conda init bash
-        conda activate typer_template
         flake8 .
 
     - name: Run mypy
       run: |
-        source ~/miniconda3/bin/activate
-        conda init bash
-        conda activate typer_template
         mypy .
 
     - name: Run pytest
       run: |
-        source ~/miniconda3/bin/activate
-        conda init bash
-        conda activate typer_template
         pytest --durations=0 --cov
 
     - name: Run pre-commit
       run: |
         # This redundant step is just to make sure that the pre-commit hook is working
-        source ~/miniconda3/bin/activate
-        conda init bash
-        conda activate typer_template
         ./pre-commit.sh

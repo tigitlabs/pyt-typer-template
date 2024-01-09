@@ -9,6 +9,9 @@ markdownlint *.md
 echo "🏃‍♂️ Running yamllint"
 yamllint .
 
+echo "🏃‍♂️ Running pyinilint"
+pyinilint mypy.ini
+
 echo "🏃‍♂️ Running black"
 black .
 

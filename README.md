@@ -3,23 +3,7 @@
 Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)  
 [Typer GitHub repository](https://github.com/tiangolo/typer)
 
-## Roadmap
-
-- [x] Add requirements with conda
-- [x] Add logging
-- [x] Add linting
-- [x] Add formatting
-- [x] Add type checking
-- [x] Add three CLI commands with typer
-- [x] Add tests
-- [X] Add code coverage
-- [x] Add pre-commit hooks
-- [ ] Add CI/CD for Ubuntu and Windows
-- [ ] Convert to a cookiecutter template
-
-## Requirements
-
-### CI/CD
+## CI/CD
 
 - Run test on Ubuntu and Windows
 - pre-commit hooks
@@ -31,7 +15,6 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 
 ### Python
 
-- dependencies with [conda](https://docs.conda.io/en/latest/)
 - Logging with [loguru](https://loguru.readthedocs.io/en/stable/)
 - linting with [flake8](https://flake8.pycqa.org/en/latest/)
 - testing with [pytest](https://docs.pytest.org/en/stable/)
@@ -102,32 +85,19 @@ gh api \
 
 ### Running in Codespace
 
-```bash
-  conda activate $CONDA_ENV_NAME
-```
+Dependencies are installed globally in this script during creation.
+[.devcontainer/postCreateCommand.sh](.devcontainer/postCreateCommand.sh)
 
 ### Not in Codespace
 
-Install conda if not already installed or not running in a Codespace
+Install Python venv if not already installed and not running in a Codespace:
 
 ```bash
-  # https://docs.conda.io/projects/miniconda/en/latest/
-
-  mkdir -p ~/miniconda3
-  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-  bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-  rm -rf ~/miniconda3/miniconda.sh
-```
-
-Create conda environment
-
-```bash
-  conda env create --file environment.yml
-  conda activate typer_template
-```
-
-Update conda environment with new dependencies
-
-```bash
-  conda env update
+  # Ensure Python 3.6+ is installed
+  # Create a virtual environment
+  python3 -m venv .venv
+  # Activate the virtual environment
+  source source .venv/bin/activate
+  # Install requierments
+  pip install -r requierments.txt
 ```

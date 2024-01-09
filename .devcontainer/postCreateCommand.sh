@@ -27,8 +27,6 @@ fi
 
 echo "🏃‍♂️ Install markdownlint"
 npm install -g markdownlint-cli
-# Create and activate conda environment
-echo "🏃‍♂️ Run conda init"
-conda init bash
-echo "🧪 Create conda environment"
-conda env create -f environment.yml
+
+echo "🏃‍♂️ install pip requierments"
+pip install -r requierments.txt

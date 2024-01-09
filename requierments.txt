@@ -1,0 +1,15 @@
+# Linters
+flake8
+black
+mypy
+yamllint
+pyinilint
+
+
+# Pytest and plugins
+pytest
+pytest-cov
+pytest-mock
+pytest-cookies
+
+cookiecutter
