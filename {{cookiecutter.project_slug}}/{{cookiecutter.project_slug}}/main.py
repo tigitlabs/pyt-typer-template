@@ -4,7 +4,7 @@ import time
 import typer
 from loguru import logger
 from rich.progress import track
-from typer_template import _logger
+from {{ cookiecutter.project_slug }} import _logger
 
 app = typer.Typer()
 
