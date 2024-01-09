@@ -1,11 +1,9 @@
 [flake8]
 # Paths to exclude: migrations, virtual environments, etc.
 exclude =
-    .venv
     .git,
     __pycache__,
-    {{cookiecutter.project_slug}}
-
+ 
 # Ignore specific errors and warnings
 # E.g., E501: line too long, W503: line break before binary operator
 ignore = 

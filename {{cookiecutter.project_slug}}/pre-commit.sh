@@ -9,11 +9,8 @@ markdownlint *.md
 echo "🏃‍♂️ Running yamllint"
 yamllint .
 
-echo "🏃‍♂️ Running pyinilint"
-pyinilint mypy.ini
-
 echo "🏃‍♂️ Running black"
-black ./tests/
+black .
 
 echo "🏃‍♂️ Running flake8"
 flake8
@@ -21,6 +18,5 @@ flake8
 echo "🏃‍♂️ Running mypy"
 # Static type checking with mypy
 mypy --ignore-missing-imports .
-
 echo "🏃‍♂️ Running pytest"
-pytest tests/
+pytest --durations=0 --cov

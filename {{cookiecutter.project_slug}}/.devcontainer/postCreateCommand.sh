@@ -1,6 +1,6 @@
 #!/bin/bash
 # .devcontainer/postCreateCommand.sh
-echo "🏗️ Post create command"
+echo "🏗️ Post start command"
 # Check if the script is running on GitHub Codespaces
 if [[ -n "${CODESPACES}" || -n "${GITHUB_CODESPACE_TOKEN}" ]]; then
     printf "Running in GitHub Codespaces.\nNo need to run any commands."
@@ -27,6 +27,8 @@ fi
 
 echo "🏃‍♂️ Install markdownlint"
 npm install -g markdownlint-cli
-
-echo "🏃‍♂️ install pip requierments"
-pip install -r requierments.txt
+# Create and activate conda environment
+echo "🏃‍♂️ Run conda init"
+conda init bash
+echo "🧪 Create conda environment"
+conda env create -f environment.yml
