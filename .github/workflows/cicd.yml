@@ -40,7 +40,7 @@ jobs:
 
     - name: Run black
       run: |
-        black ./tests/ --check .
+        black ./tests/ --check
 
     - name: Run flake8
       run: |
