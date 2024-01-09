@@ -48,7 +48,7 @@ jobs:
 
     - name: Run pytest
       run: |
-        pytest --durations=0 --cov
+        pytest ./tests --durations=0 --cov
 
     - name: Run pre-commit
       run: |
