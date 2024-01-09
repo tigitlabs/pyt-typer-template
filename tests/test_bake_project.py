@@ -1,4 +1,3 @@
-
 def test_bake_project(cookies):
     result = cookies.bake(extra_context={"repo_name": "helloworld"})
     assert result.exit_code == 0

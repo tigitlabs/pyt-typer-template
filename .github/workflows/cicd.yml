@@ -30,13 +30,17 @@ jobs:
       run: |
         markdownlint .
 
+    - name: Run pyinilint
+      run: |
+        pyinilint mypy.ini
+
     - name: Run yamllint
       run: |
         yamllint .
 
     - name: Run black
       run: |
-        black --check .
+        black ./tests/ --check .
 
     - name: Run flake8
       run: |
