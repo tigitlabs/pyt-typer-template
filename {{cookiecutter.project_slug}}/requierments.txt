@@ -1,0 +1,10 @@
+loguru
+typer
+flake8
+pytest
+pytest-cov
+pytest-mock
+black
+mypy
+yamllint
+cookiecutter
