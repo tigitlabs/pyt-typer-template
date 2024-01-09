@@ -1,12 +1,14 @@
 ---
 
-name: typer_template
+name: {{cookiecutter.project_slug}}
 channels:
   - defaults
   - conda-forge
 
 dependencies:
   - python=3.10.13
+  - loguru
+  - typer
   - flake8
   - pytest
   - pytest-cov

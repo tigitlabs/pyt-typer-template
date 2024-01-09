@@ -8,13 +8,12 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 - [x] Add requirements with conda
 - [x] Add logging
 - [x] Add linting
-- [ ] Add formatting
-- [ ] Add type checking
-- [ ] Add three CLI commands with typer
-- [ ] Add tests
-- [ ] Add code coverage
-- [ ] Add code formatting
-- [ ] Add pre-commit hooks
+- [x] Add formatting
+- [x] Add type checking
+- [x] Add three CLI commands with typer
+- [x] Add tests
+- [X] Add code coverage
+- [x] Add pre-commit hooks
 - [ ] Add CI/CD for Ubuntu and Windows
 - [ ] Convert to a cookiecutter template
 
@@ -30,8 +29,8 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
   - pytest
   - coverage
 
-
 ### Python
+
 - dependencies with [conda](https://docs.conda.io/en/latest/)
 - Logging with [loguru](https://loguru.readthedocs.io/en/stable/)
 - linting with [flake8](https://flake8.pycqa.org/en/latest/)
@@ -41,6 +40,7 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 - type checking with [mypy](https://mypy.readthedocs.io/en/stable/)
 
 ### CLI
+
 - [Typer](https://typer.tiangolo.com/)
 
 - Printing with [rich](https://rich.readthedocs.io/en/latest/)
@@ -55,10 +55,46 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
   - clean
     - remove files
 
-
-### Devenv
+### Dev Environment
 
 Designed to work with Github Codespaces
+
+#### Working in a Codespace
+
+You can create a Codespace by clicking the green button at the top of the repository.  
+Or use the Github CLI
+
+```bash
+gh cs create --repo tigitlabs/pyt-typer-template --branch dev --display-name pyt-typer-template --machine premiumLinux
+```
+
+Machine options:
+
+- basicLinux32gb
+  - RAM: 8 GB
+  - Cores: 2
+  - Disk Space: 32 GB
+- standardLinux32gb
+  - RAM: 16 GB
+  - Cores: 4
+  - Disk Space: 32 GB
+- premiumLinux
+  - RAM: 32 GB
+  - Cores: 8
+  - Disk Space: 64 GB
+- largePremiumLinux
+  - RAM: 64 GB
+  - Cores: 16
+  - Disk Space: 128 GB
+
+Query Codespace machines options
+
+```bash
+gh api \
+-H "Accept: application/vnd.github+json" \
+-H "X-GitHub-Api-Version: 2022-11-28" \
+/repos/tigitlabs/pyt-typer-template/codespaces/machines
+```
 
 ## Usage
 
