@@ -1,7 +1,8 @@
-# test_main.py
+"""Tests for `{{ cookiecutter.project_slug }}` package."""
 
-from typer_template import main
-from typer_template import _logger
+
+from {{ cookiecutter.project_slug }} import main
+from {{ cookiecutter.project_slug }} import _logger
 
 
 def test_main(capsys):
