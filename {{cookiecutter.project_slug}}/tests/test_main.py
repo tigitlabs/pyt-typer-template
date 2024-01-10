@@ -1,8 +1,7 @@
 """Tests for `{{ cookiecutter.project_slug }}` package."""
 
 
-from {{ cookiecutter.app_slug }} import main
-from {{ cookiecutter.app_slug }} import _logger
+from {{cookiecutter.app_slug}} import _logger, main
 
 
 def test_main(capsys):

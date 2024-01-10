@@ -4,10 +4,10 @@
 # https://github.com/audreyfeldroy/cookiecutter-pypackage/blob/master/tests/test_bake_project.py
 
 import os
-from pathlib import Path
 import shlex
 import subprocess
 from contextlib import contextmanager
+from pathlib import Path
 
 EXPECTED_TOPLEVEL_FILES = ["tests", "README.md", ".gitignore", ".flake8", ".actrc"]
 
@@ -39,7 +39,7 @@ def run_inside_dir(command, dirpath):
         except Exception:
             print(
                 f"An error occurred when running the command {command} in directory: {dirpath}\n"
-                f"💡 Run the command pytest /tests --keep-baked-projects and run the failed command in the directory.\n"
+                f"💡 Run the command pytest tests/ --keep-baked-projects and run the failed command in the directory.\n"
                 f"Output dir: {dirpath}"
             )
             raise
@@ -62,7 +62,7 @@ def test_bake_project(cookies, request):
     for expected_file in EXPECTED_TOPLEVEL_FILES:
         assert expected_file in found_toplevel_files
 
-    run_inside_dir("pip install -r requierments.txt", str(output_path)) == 0
+    run_inside_dir("pip install -r requirements.txt", str(output_path)) == 0
     run_inside_dir("markdownlint .", str(output_path)) == 0
     run_inside_dir("yamllint .", str(output_path)) == 0
     run_inside_dir("black .", str(output_path)) == 0
@@ -73,13 +73,48 @@ def test_bake_project(cookies, request):
     run_inside_dir("./pre-commit.sh", str(output_path)) == 0
     print("test_bake_and_run_tests path", str(output_path))
 
-    # Test Github Actions
+    if keep_baked_projects:
+        print("Keeping baked project at:\n {}".format(output_path))
+        pass
+
+
+def test_bake_github_actions(cookies, request):
+    keep_baked_projects = request.config.getoption("--keep-baked-projects")
+    result = cookies.bake(extra_context={"project_name": "gh-actions"})
+    assert result.exit_code == 0
+    assert result.exception is None
+
+    output_path: Path = result.project_path
+    assert output_path.is_dir()
+
+    assert output_path.name == "gh-actions"
+    assert output_path.is_dir()
+
+    if keep_baked_projects:
+        print("Keeping baked project at:\n {}".format(output_path))
+        pass
+        # Test Github Actions
     # git init is needed for act to work
     run_inside_dir("git init", str(output_path)) == 0
     run_inside_dir("act pull_request -l", str(output_path)) == 0
     run_inside_dir("act pull_request --dryrun", str(output_path)) == 0
     run_inside_dir("act pull_request -v", str(output_path)) == 0
 
+
+def test_bake_devcontainer(cookies, request):
+    keep_baked_projects = request.config.getoption("--keep-baked-projects")
+    result = cookies.bake(extra_context={"project_name": "dev-con"})
+    assert result.exit_code == 0
+    assert result.exception is None
+
+    output_path: Path = result.project_path
+    assert output_path.is_dir()
+
+    assert output_path.name == "dev-con"
+    assert output_path.is_dir()
+
     if keep_baked_projects:
         print("Keeping baked project at:\n {}".format(output_path))
         pass
+    # Test the devcontainer
+    run_inside_dir("./devcontainer_test.sh", str(output_path)) == 0
