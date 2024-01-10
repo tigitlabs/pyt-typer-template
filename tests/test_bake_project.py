@@ -4,10 +4,10 @@
 # https://github.com/audreyfeldroy/cookiecutter-pypackage/blob/master/tests/test_bake_project.py
 
 import os
-from pathlib import Path
 import shlex
 import subprocess
 from contextlib import contextmanager
+from pathlib import Path
 
 EXPECTED_TOPLEVEL_FILES = ["tests", "README.md", ".gitignore", ".flake8", ".actrc"]
 
@@ -62,7 +62,7 @@ def test_bake_project(cookies, request):
     for expected_file in EXPECTED_TOPLEVEL_FILES:
         assert expected_file in found_toplevel_files
 
-    run_inside_dir("pip install -r requierments.txt", str(output_path)) == 0
+    run_inside_dir("pip install -r requirements.txt", str(output_path)) == 0
     run_inside_dir("markdownlint .", str(output_path)) == 0
     run_inside_dir("yamllint .", str(output_path)) == 0
     run_inside_dir("black .", str(output_path)) == 0
