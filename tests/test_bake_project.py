@@ -34,15 +34,19 @@ def run_inside_dir(command, dirpath):
     """
     with inside_dir(dirpath):
         try:
-            return subprocess.check_call(shlex.split(command))
+            result = subprocess.run(shlex.split(command), check=True)
+            return result.returncode
         except Exception:
             print(
-                f"An error occurred when running the command {command} in directory: {dirpath}"
+                f"An error occurred when running the command {command} in directory: {dirpath}\n"
+                f"💡 Run the command pytest /tests --keep-baked-projects and run the failed command in the directory.\n"
+                f"Output dir: {dirpath}"
             )
             raise
 
 
-def test_bake_project(cookies):
+def test_bake_project(cookies, request):
+    keep_baked_projects = request.config.getoption("--keep-baked-projects")
     result = cookies.bake(extra_context={"project_name": "helloworld"})
     assert result.exit_code == 0
     assert result.exception is None
@@ -68,3 +72,14 @@ def test_bake_project(cookies):
     # This is redundant, just making sure it works
     run_inside_dir("./pre-commit.sh", str(output_path)) == 0
     print("test_bake_and_run_tests path", str(output_path))
+
+    # Test Github Actions
+    # git init is needed for act to work
+    run_inside_dir("git init", str(output_path)) == 0
+    run_inside_dir("act pull_request -l", str(output_path)) == 0
+    run_inside_dir("act pull_request --dryrun", str(output_path)) == 0
+    run_inside_dir("act pull_request -v", str(output_path)) == 0
+
+    if keep_baked_projects:
+        print("Keeping baked project at:\n {}".format(output_path))
+        pass
