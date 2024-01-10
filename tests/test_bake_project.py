@@ -71,9 +71,11 @@ def test_bake_project(cookies, request):
     print("test_bake_and_run_tests path", str(output_path))
 
     # Test Github Actions
+    # git init is needed for act to work
     run_inside_dir("git init", str(output_path)) == 0
     run_inside_dir("act pull_request -l", str(output_path)) == 0
     run_inside_dir("act pull_request --dryrun", str(output_path)) == 0
+    run_inside_dir("act pull_request -v", str(output_path)) == 0
 
     if keep_baked_projects:
         print("Keeping baked project at:\n {}".format(output_path))
