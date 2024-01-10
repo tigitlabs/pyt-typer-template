@@ -27,27 +27,3 @@ docker images
 
 # Clean up
 docker rm -f $(docker container ls -f "label=${id_label}" -q)
-
-# Exit immediately if a command exits with a non-zero status
-set -e
-
-# Check if the file "test-project/test.sh" exists
-if [ -f "test-project/test.sh" ]; then
-  # Change the current directory to "test-project"
-  cd test-project
-
-  # Check if the current user is root
-  if [ "$(id -u)" = "0" ]; then
-    # If the user is root, make "test.sh" executable
-    chmod +x test.sh
-  else
-    # If the user is not root, use sudo to make "test.sh" executable
-    sudo chmod +x test.sh
-  fi
-
-  # Execute "test.sh"
-  ./test.sh
-else
-  # If "test.sh" does not exist, list all files in the current directory
-  ls -a
-fi
