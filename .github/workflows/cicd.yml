@@ -25,6 +25,12 @@ jobs:
       run: |
         npm install -g markdownlint-cli
 
+    - name: Install nectos act
+      run: |
+        cd /
+        curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
+        act --version
+
     - name: Run markdownlint
       run: |
         markdownlint .
@@ -51,7 +57,7 @@ jobs:
 
     - name: Run pytest
       run: |
-        pytest ./tests --durations=0 --cov
+        pytest ./tests --durations=0 --cov -s -v
 
     - name: Run pre-commit
       run: |
