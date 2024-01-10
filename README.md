@@ -38,9 +38,22 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
   - clean
     - remove files
 
-### Dev Environment
+## Development
+
+### Environment
 
 Designed to work with Github Codespaces
+
+### Tools
+
+#### pytest
+
+The tests are using the plugin pytest-cookies.
+To run the tests and keep the output folder for debugging, run:
+
+```bash
+pytest tests/ --keep-baked-projects
+```
 
 #### Working in a Codespace
 
