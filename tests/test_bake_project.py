@@ -34,10 +34,13 @@ def run_inside_dir(command, dirpath):
     """
     with inside_dir(dirpath):
         try:
-            return subprocess.check_call(shlex.split(command))
+            result = subprocess.run(shlex.split(command), check=True)
+            return result.returncode
         except Exception:
             print(
-                f"An error occurred when running the command {command} in directory: {dirpath}"
+                f"An error occurred when running the command {command} in directory: {dirpath}\n"
+                f"💡 Run the command pytest /tests --keep-baked-projects and run the failed command in the directory.\n"
+                f"Output dir: {dirpath}"
             )
             raise
 
