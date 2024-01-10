@@ -39,7 +39,7 @@ def run_inside_dir(command, dirpath):
         except Exception:
             print(
                 f"An error occurred when running the command {command} in directory: {dirpath}\n"
-                f"💡 Run the command pytest /tests --keep-baked-projects and run the failed command in the directory.\n"
+                f"💡 Run the command pytest tests/ --keep-baked-projects and run the failed command in the directory.\n"
                 f"Output dir: {dirpath}"
             )
             raise

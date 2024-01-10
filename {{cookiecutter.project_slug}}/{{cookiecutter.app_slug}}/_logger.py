@@ -1,6 +1,7 @@
 # main.py
 
 import sys
+
 from loguru import logger
 
 LOG_LEVEL = "WARNING"

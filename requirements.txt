@@ -4,6 +4,7 @@ black
 mypy
 yamllint
 pyinilint
+isort
 
 
 # Pytest and plugins
