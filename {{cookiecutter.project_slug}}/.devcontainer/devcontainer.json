@@ -28,6 +28,8 @@
       "version": "latest",
       "ppa": "false"
     },
+    "ghcr.io/devcontainers/features/python:1": {
+    },
     "ghcr.io/devcontainers/features/github-cli:1": {
       "installDirectlyFromGitHubRelease": true,
       "version": "latest"
