@@ -83,3 +83,6 @@ def test_bake_project(cookies, request):
     if keep_baked_projects:
         print("Keeping baked project at:\n {}".format(output_path))
         pass
+
+    # Test the devcontainer
+    run_inside_dir("./devcontainer_test.sh", str(output_path)) == 0
