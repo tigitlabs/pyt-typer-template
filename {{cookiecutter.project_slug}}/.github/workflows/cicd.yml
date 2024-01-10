@@ -21,6 +21,10 @@ jobs:
       run: |
         npm install -g markdownlint-cli
 
+    - name: install devcontainer cli
+      run: |
+        npm install -g @devcontainers/cli
+
     - name: Run markdownlint
       run: |
         markdownlint .

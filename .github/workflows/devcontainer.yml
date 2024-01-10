@@ -15,6 +15,7 @@ jobs:
     - name: install devcontainer cli
       run: |
         npm install -g @devcontainers/cli
+
     - name: Build and Test Devcontainer
       run: |
         ./devcontainer_test.sh
