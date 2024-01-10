@@ -3,6 +3,18 @@
 Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)  
 [Typer GitHub repository](https://github.com/tiangolo/typer)
 
+## Usage
+
+To use this template by running:
+
+```bash
+cookiecutter https://github.com/tigitlabs/pyt-typer-template.git
+```
+
+Then run cookiecutter:
+
+```bash
+
 ## CI/CD
 
 - Run test on Ubuntu and Windows
@@ -55,7 +67,7 @@ To run the tests and keep the output folder for debugging, run:
 pytest tests/ --keep-baked-projects
 ```
 
-#### Working in a Codespace
+### Working in a Codespace
 
 You can create a Codespace by clicking the green button at the top of the repository.  
 Or use the Github CLI
@@ -91,8 +103,6 @@ gh api \
 -H "X-GitHub-Api-Version: 2022-11-28" \
 /repos/tigitlabs/pyt-typer-template/codespaces/machines
 ```
-
-## Usage
 
 ### Install dependencies
 
