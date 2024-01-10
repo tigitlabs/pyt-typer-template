@@ -75,7 +75,6 @@ def test_bake_project(cookies, request):
     run_inside_dir("act pull_request -l", str(output_path)) == 0
     run_inside_dir("act pull_request --dryrun", str(output_path)) == 0
 
-    
     if keep_baked_projects:
         print("Keeping baked project at:\n {}".format(output_path))
         pass
