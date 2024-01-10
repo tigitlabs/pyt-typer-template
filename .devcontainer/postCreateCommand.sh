@@ -29,4 +29,4 @@ echo "🏃‍♂️ Install markdownlint"
 npm install -g markdownlint-cli
 
 echo "🏃‍♂️ install pip requierments"
-pip install -r requierments.txt
+pip install -r requirements.txt
