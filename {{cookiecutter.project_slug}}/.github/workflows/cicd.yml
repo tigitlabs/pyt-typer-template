@@ -1,0 +1,58 @@
+---
+
+name: Python CI
+
+on:
+  pull_request
+
+jobs:
+  cicd:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10.13
+
+    - name: Install Markdownlint
+      run: |
+        npm install -g markdownlint-cli
+
+    - name: Run markdownlint
+      run: |
+        markdownlint .
+
+    - name: Install requierments
+      run: |
+        pip install -r requierments.txt
+    - name: Run markdownlint
+      run: |
+        markdownlint .
+
+    - name: Run yamllint
+      run: |
+        yamllint .
+
+    - name: Run black
+      run: |
+        black ./tests/ --check
+
+    - name: Run flake8
+      run: |
+        flake8 .
+
+    - name: Run mypy
+      run: |
+        mypy .
+
+    - name: Run pytest
+      run: |
+        pytest ./tests --durations=0 --cov
+
+    - name: Run pre-commit
+      run: |
+        # This redundant step is just to make sure that the pre-commit hook is working
+        ./pre-commit.sh
