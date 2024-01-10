@@ -25,6 +25,10 @@ jobs:
       run: |
         npm install -g markdownlint-cli
 
+    - name: install devcontainer cli
+      run: |
+        npm install -g @devcontainers/cli
+
     - name: Install nectos act
       run: |
         cd /
