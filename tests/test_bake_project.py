@@ -73,19 +73,32 @@ def test_bake_project(cookies, request):
     run_inside_dir("./pre-commit.sh", str(output_path)) == 0
     print("test_bake_and_run_tests path", str(output_path))
 
-    # Test Github Actions
+    if keep_baked_projects:
+        print("Keeping baked project at:\n {}".format(output_path))
+        pass
+
+
+def test_bake_github_actions(cookies, request):
+    keep_baked_projects = request.config.getoption("--keep-baked-projects")
+    result = cookies.bake(extra_context={"project_name": "gh-actions"})
+    assert result.exit_code == 0
+    assert result.exception is None
+
+    output_path: Path = result.project_path
+    assert output_path.is_dir()
+
+    assert output_path.name == "gh-actions"
+    assert output_path.is_dir()
+
+    if keep_baked_projects:
+        print("Keeping baked project at:\n {}".format(output_path))
+        pass
+        # Test Github Actions
     # git init is needed for act to work
     run_inside_dir("git init", str(output_path)) == 0
     run_inside_dir("act pull_request -l", str(output_path)) == 0
     run_inside_dir("act pull_request --dryrun", str(output_path)) == 0
     run_inside_dir("act pull_request -v", str(output_path)) == 0
-
-    if keep_baked_projects:
-        print("Keeping baked project at:\n {}".format(output_path))
-        pass
-
-    # Test the devcontainer
-    run_inside_dir("./devcontainer_test.sh", str(output_path)) == 0
 
 
 def test_bake_devcontainer(cookies, request):
