@@ -15,7 +15,7 @@ if [ ! $(command -v devcontainer) &> /dev/null ]; then
 fi
 
 echo "🏗️ Building image"
-id_label="test-container=cicd"
+id_label="test-container=cicd_template"
 devcontainer up --id-label ${id_label} --workspace-folder "${workspace_folder}"
 
 # Run actual test
