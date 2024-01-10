@@ -11,10 +11,6 @@ To use this template by running:
 cookiecutter https://github.com/tigitlabs/pyt-typer-template.git
 ```
 
-Then run cookiecutter:
-
-```bash
-
 ## CI/CD
 
 - Run test on Ubuntu and Windows
