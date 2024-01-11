@@ -6,7 +6,7 @@ on:
   pull_request
 
 jobs:
-  build_and_test_devcontainer:
+  build_and_test_main_devcontainer:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -18,4 +18,28 @@ jobs:
 
     - name: Build and Test Devcontainer
       run: |
+        ./devcontainer_test.sh
+
+  build_and_test_template_devcontainer:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install cookiecutter
+      run: |
+        pip install cookiecutter
+        cookiecutter --version
+
+    - name: install devcontainer cli
+      run: |
+        npm install -g @devcontainers/cli
+
+    - name: Create template
+      run: |
+        cookiecutter . --no-input --output-dir ~/
+
+    - name: Build and Test Devcontainer
+      run: |
+        cd ~/typer-cli-template
         ./devcontainer_test.sh
