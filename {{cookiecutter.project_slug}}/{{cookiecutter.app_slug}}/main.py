@@ -1,10 +1,11 @@
 # main.py
 
 import time
+
 import typer
 from loguru import logger
 from rich.progress import track
-from {{ cookiecutter.project_slug }} import _logger
+from {{cookiecutter.app_slug}} import _logger
 
 app = typer.Typer()
 

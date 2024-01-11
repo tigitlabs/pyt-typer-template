@@ -8,12 +8,9 @@ Template for a Python CLI application using [Typer](https://typer.tiangolo.com/)
 To use this template by running:
 
 ```bash
+pip install cookiecutter
 cookiecutter https://github.com/tigitlabs/pyt-typer-template.git
 ```
-
-Then run cookiecutter:
-
-```bash
 
 ## CI/CD
 
@@ -121,6 +118,6 @@ Install Python venv if not already installed and not running in a Codespace:
   python3 -m venv .venv
   # Activate the virtual environment
   source source .venv/bin/activate
-  # Install requierments
-  pip install -r requierments.txt
+  # Install requirements
+  pip install -r requirements.txt
 ```

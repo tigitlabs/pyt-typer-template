@@ -21,13 +21,17 @@ jobs:
       run: |
         npm install -g markdownlint-cli
 
+    - name: install devcontainer cli
+      run: |
+        npm install -g @devcontainers/cli
+
     - name: Run markdownlint
       run: |
         markdownlint .
 
     - name: Install requierments
       run: |
-        pip install -r requierments.txt
+        pip install -r requirements.txt
     - name: Run markdownlint
       run: |
         markdownlint .

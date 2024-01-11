@@ -12,6 +12,9 @@ yamllint .
 echo "🏃‍♂️ Running pyinilint"
 pyinilint mypy.ini
 
+echo "🏃‍♂️ Running isort"
+isort .
+
 echo "🏃‍♂️ Running black"
 black ./tests/
 

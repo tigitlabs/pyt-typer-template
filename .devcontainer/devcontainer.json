@@ -6,9 +6,6 @@
     "dockerfile": "./Dockerfile",
     "context": "."
   },
-  "containerEnv": {
-    "CONDA_ENV_NAME": "typer_template"
-  },
   "initializeCommand": ".devcontainer/initializeCommand.sh",
   "postCreateCommand": ".devcontainer/postCreateCommand.sh",
   "postStartCommand": ".devcontainer/postStartCommand.sh",
