@@ -71,7 +71,9 @@ def test_bake_project(cookies, request):
     run_inside_dir("pytest .", str(output_path)) == 0
     # This is redundant, just making sure it works
     run_inside_dir("./pre-commit.sh", str(output_path)) == 0
-    print("test_bake_and_run_tests path", str(output_path))
+
+    # Test the CLI
+    run_inside_dir("python helloworld/main.py --help", str(output_path)) == 0
 
     if keep_baked_projects:
         print("Keeping baked project at:\n {}".format(output_path))
