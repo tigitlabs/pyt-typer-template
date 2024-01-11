@@ -31,4 +31,4 @@ jobs:
     - name: Run github actions with act
       run: |
         cd ~/typer-cli-template
-        act
+        act pull_request
