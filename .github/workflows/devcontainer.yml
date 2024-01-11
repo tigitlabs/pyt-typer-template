@@ -28,7 +28,7 @@ jobs:
 
     - name: Install cookiecutter
       run: |
-        sudo pip install cookiecutter
+        pip install cookiecutter
         cookiecutter --version
 
     - name: install devcontainer cli
