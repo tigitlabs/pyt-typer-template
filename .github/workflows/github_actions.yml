@@ -31,4 +31,6 @@ jobs:
     - name: Run github actions with act
       run: |
         cd ~/typer-cli-template
+        # git init is required for act to work
+        git init
         act pull_request
