@@ -28,7 +28,7 @@ jobs:
       run: |
         cookiecutter . --no-input --output-dir ~/
 
-    - name: Build and Test Devcontainer
+    - name: Run github actions with act
       run: |
         cd ~/typer-cli-template
         act
