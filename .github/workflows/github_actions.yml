@@ -1,0 +1,34 @@
+---
+
+name: Github Actions Test
+
+on:
+  pull_request
+
+jobs:
+
+  run-github-actions-with-act:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install cookiecutter
+      run: |
+        sudo pip install cookiecutter
+        cookiecutter --version
+
+    - name: Install nectos act
+      run: |
+        cd /
+        curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
+        act --version
+
+    - name: Create template
+      run: |
+        cookiecutter . --no-input --output-dir ~/
+
+    - name: Build and Test Devcontainer
+      run: |
+        cd ~/typer-cli-template
+        act
