@@ -1,7 +1,7 @@
 """Tests for `{{ cookiecutter.project_slug }}` package."""
 
 
-from {{cookiecutter.app_slug}} import _logger, main
+from {{cookiecutter.app_slug}} import logger_util, main
 
 
 def test_main(capsys):
@@ -11,4 +11,4 @@ def test_main(capsys):
 
 
 def test_logger_init():
-    _logger.setup_logging("DEBUG")
+    logger_util.setup_logging("DEBUG")

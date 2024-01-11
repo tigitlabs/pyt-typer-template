@@ -2,10 +2,10 @@
 
 import time
 
+import logger_util
 import typer
 from loguru import logger
 from rich.progress import track
-from {{cookiecutter.app_slug}} import _logger
 
 app = typer.Typer()
 
@@ -19,7 +19,7 @@ def init_logging(verbose: bool = False):
     log_level = "ERROR"
     if verbose:
         log_level = "DEBUG"
-    _logger.setup_logging(log_level)
+    logger_util.setup_logging(log_level)
 
 
 @app.command()
