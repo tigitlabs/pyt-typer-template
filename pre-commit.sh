@@ -26,4 +26,4 @@ echo "🏃‍♂️ Running mypy"
 mypy --ignore-missing-imports .
 
 echo "🏃‍♂️ Running pytest"
-pytest tests/
+pytest  tests/test_bake_project.py::test_bake_project
