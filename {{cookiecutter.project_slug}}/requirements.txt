@@ -1,6 +1,7 @@
 loguru
 typer
 flake8
+pyinilint
 pytest
 pytest-cov
 pytest-mock
