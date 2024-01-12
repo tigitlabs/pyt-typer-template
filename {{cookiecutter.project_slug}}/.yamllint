@@ -15,3 +15,4 @@ rules:
 ignore: |
   # Ignore these paths
   .git
+  .venv

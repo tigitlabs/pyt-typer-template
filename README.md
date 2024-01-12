@@ -112,12 +112,29 @@ Dependencies are installed globally in this script during creation.
 
 Install Python venv if not already installed and not running in a Codespace:
 
+bash
 ```bash
   # Ensure Python 3.6+ is installed
   # Create a virtual environment
-  python3 -m venv .venv
+  python -m venv .venv
   # Activate the virtual environment
   source source .venv/bin/activate
   # Install requirements
   pip install -r requirements.txt
 ```
+
+PowerShell
+```powershell
+  # Create a virtual environment
+  python -m venv .venv
+  # Activate the virtual environment
+  .\.venv\Scripts\activate
+  # Install requirements
+  pip install -r requirements.txt
+```
+## TODO
+
+- [ ] venv needs python version Python 3.12.1 needs to be set everywere
+- [ ] in the tempalte readme add a section about how to run the app and install requirements
+- [ ] the package name should not be the same as the repo name neccecerly
+- [ ] add inilinter to template for mypy.ini
