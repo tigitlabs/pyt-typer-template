@@ -24,6 +24,10 @@ jobs:
         curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
         act --version
 
+    - name: install devcontainer cli
+      run: |
+        npm install -g @devcontainers/cli
+
     - name: Create template
       run: |
         cookiecutter . --no-input --output-dir ~/
