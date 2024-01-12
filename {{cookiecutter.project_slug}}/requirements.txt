@@ -1,6 +1,7 @@
 loguru
 typer
 flake8
+isort
 pyinilint
 pytest
 pytest-cov
