@@ -59,4 +59,4 @@ jobs:
     - name: Run pre-commit
       run: |
         # This redundant step is just to make sure that the pre-commit hook is working
-        ./scripts/pre-commit.sh
+        ./scripts/pre_commit.sh
