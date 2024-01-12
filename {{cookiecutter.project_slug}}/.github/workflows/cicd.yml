@@ -32,13 +32,18 @@ jobs:
     - name: Install requierments
       run: |
         pip install -r requirements.txt
-    - name: Run markdownlint
-      run: |
-        markdownlint .
 
     - name: Run yamllint
       run: |
         yamllint .
+
+    - name: Run pyinilint
+      run: |
+        pyinilint mypy.ini
+
+    - name: Run isort
+      run: |
+        isort .
 
     - name: Run black
       run: |
