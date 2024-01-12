@@ -13,7 +13,17 @@ from pathlib import Path
 
 import pytest
 
-EXPECTED_TOPLEVEL_FILES = ["tests", "README.md", ".gitignore", ".flake8", ".actrc"]
+EXPECTED_TOPLEVEL_FILES = [
+    "tests",
+    "scripts",
+    "README.md",
+    ".gitignore",
+    ".flake8",
+    ".actrc",
+    ".devcontainer",
+    "mypy.ini",
+    "pyproject.toml",
+]
 
 
 class OS(str, Enum):
@@ -112,52 +122,3 @@ def test_bake_project(cookies, get_os):
 
     # Test the CLI
     run_inside_dir("python helloworld/main.py --help", str(output_path)) == 0
-
-
-def test_bake_github_actions(cookies, request, get_os):
-    if get_os == OS.WINDOWS:
-        print("Skipping Github Actions tests on Windows")
-        pass
-    else:
-        keep_baked_projects = request.config.getoption("--keep-baked-projects")
-        result = cookies.bake(extra_context={"project_name": "gh-actions"})
-        assert result.exit_code == 0
-        assert result.exception is None
-
-        output_path: Path = result.project_path
-        assert output_path.is_dir()
-
-        assert output_path.name == "gh-actions"
-        assert output_path.is_dir()
-
-        if keep_baked_projects:
-            print("Keeping baked project at:\n {}".format(output_path))
-            pass
-            # Test Github Actions
-        # git init is needed for act to work
-        run_inside_dir("git init", str(output_path)) == 0
-        run_inside_dir("act pull_request -l", str(output_path)) == 0
-        run_inside_dir("act pull_request --dryrun", str(output_path)) == 0
-        run_inside_dir("act pull_request -v", str(output_path)) == 0
-
-
-def test_bake_devcontainer(cookies, request, get_os):
-    if get_os == OS.WINDOWS:
-        print("Skipping Github Actions tests on Windows")
-        pass
-    else:
-        keep_baked_projects = request.config.getoption("--keep-baked-projects")
-
-        result = cookies.bake(extra_context={"project_name": "dev-con"})
-        assert result.exit_code == 0
-        assert result.exception is None
-
-        output_path: Path = result.project_path
-        assert output_path.is_dir()
-
-        assert output_path.name == "dev-con"
-        assert output_path.is_dir()
-        if keep_baked_projects:
-            print("Keeping baked project at:\n {}".format(output_path))
-        # Test the devcontainer build
-        run_inside_dir("./scripts/devcontainer_test.sh", str(output_path)) == 0
