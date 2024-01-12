@@ -72,8 +72,7 @@ def run_inside_dir(command, dirpath):
             raise
 
 
-def test_bake_project(cookies, request, get_os):
-    keep_baked_projects = request.config.getoption("--keep-baked-projects")
+def test_bake_project(cookies, get_os):
     result = cookies.bake(extra_context={"project_name": "helloworld"})
     assert result.exit_code == 0
     assert result.exception is None
@@ -109,7 +108,7 @@ def test_bake_project(cookies, request, get_os):
         # Setting the execution policy to unrestricted is needed for the pre-commit script to run
         print("Skipping pre-commit script tests on Windows")
     else:
-        run_inside_dir("scripts/pre-commit-test.sh", str(output_path)) == 0
+        run_inside_dir("./scripts/pre_commit.sh", str(output_path)) == 0
 
     # Test the CLI
     run_inside_dir("python helloworld/main.py --help", str(output_path)) == 0

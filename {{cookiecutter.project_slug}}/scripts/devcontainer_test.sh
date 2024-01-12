@@ -3,9 +3,12 @@
 set -e
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+echo "📂 Script directory: $script_dir"
 
-devcontainer_json=".devcontainer/devcontainer.json"
-workspace_folder=$script_dir
+workspace_folder="$script_dir/.."
+echo "📂 Workspace folder: $workspace_folder"
+devcontainer_json="$workspace_folder/.devcontainer/devcontainer.json"
+echo "📄 Devcontainer json: $devcontainer_json"
 
 export DOCKER_BUILDKIT=1
 echo "🧪 Make sure devcontainer cli is available"

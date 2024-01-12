@@ -18,7 +18,7 @@ jobs:
 
     - name: Build and Test Devcontainer
       run: |
-        ./devcontainer_test.sh
+        ./scripts/devcontainer_test.sh
 
   build_and_test_template_devcontainer:
     runs-on: ubuntu-latest
@@ -42,4 +42,4 @@ jobs:
     - name: Build and Test Devcontainer
       run: |
         cd ~/typer-cli-template
-        ./devcontainer_test.sh
+        ./scripts/devcontainer_test.sh
