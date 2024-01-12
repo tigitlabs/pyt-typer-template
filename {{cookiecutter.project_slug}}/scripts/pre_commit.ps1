@@ -8,7 +8,7 @@ Write-Host "🏃‍♂️ Running yamllint"
 yamllint .
 
 Write-Host "🏃‍♂️ Running pyinilint"
-pyinilint mypy.ini
+pyinilint *.ini
 
 Write-Host "🏃‍♂️ Running isort"
 isort .

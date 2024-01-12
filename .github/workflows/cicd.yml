@@ -41,7 +41,7 @@ jobs:
 
     - name: Run pyinilint
       run: |
-        pyinilint mypy.ini
+        pyinilint *.ini
 
     - name: Run yamllint
       run: |

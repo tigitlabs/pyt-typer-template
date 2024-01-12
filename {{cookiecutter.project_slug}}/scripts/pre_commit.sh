@@ -10,7 +10,7 @@ echo "🏃‍♂️ Running yamllint"
 yamllint .
 
 echo "🏃‍♂️ Running pyinilint"
-pyinilint mypy.ini
+pyinilint *.ini
 
 echo "🏃‍♂️ Running isort"
 isort .
