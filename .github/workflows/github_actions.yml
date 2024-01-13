@@ -24,9 +24,6 @@ jobs:
         curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
         act --version
 
-    - name: Setup buildx
-      uses: docker/setup-buildx-action@v3
-
     - name: install devcontainer cli
       run: |
         npm install -g @devcontainers/cli

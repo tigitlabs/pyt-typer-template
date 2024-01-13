@@ -32,7 +32,12 @@ workflows_dir="$project_root/.github/workflows"
 debug_print "📂 workflows directory: $workflows_dir"
 workflow_file="$workflows_dir/cicd.yml"
 
+
+# runner_image="ghcr.io/catthehacker/ubuntu:full-22.04"
+runner_image="ghcr.io/catthehacker/ubuntu:runner-22.04"
+docker pull $runner_image
+
 act pull_request \
---platform ubuntu-latest=ghcr.io/catthehacker/ubuntu:runner-22.04 \
+--platform "ubuntu-latest=$runner_image" \
 --workflows "$workflow_file" \
 --job cicd

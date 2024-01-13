@@ -1,5 +1,5 @@
 #!/bin/bash
-# act_devcontainer.sh
+# act_gh_actions.sh
 
 VERBOSE=0
 # Check if verbose mode is enabled
@@ -30,13 +30,14 @@ debug_print "📂 project root: $project_root"
 
 workflows_dir="$project_root/.github/workflows"
 debug_print "📂 workflows directory: $workflows_dir"
-workflow_file="$workflows_dir/devcontainer.yml"
+workflow_file="$workflows_dir/github_actions.yml"
+
 
 # runner_image="ghcr.io/catthehacker/ubuntu:full-22.04"
 runner_image="ghcr.io/catthehacker/ubuntu:runner-22.04"
 docker pull $runner_image
 
-act \
+act pull_request \
 --platform "ubuntu-latest=$runner_image" \
 --workflows "$workflow_file" \
---job build_and_test_main_devcontainer
+--job run-github-actions-with-act
