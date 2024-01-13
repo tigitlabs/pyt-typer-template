@@ -5,8 +5,10 @@ echo "🏗️ Initialize command"
 if [[ -n "${CODESPACES}" || -n "${GITHUB_CODESPACE_TOKEN}" ]]; then
     printf "Running in GitHub Codespaces.\nNo need to export any keys."
     exit 0
+elif [[ -n "${GITHUB_ACTIONS}" ]]; then
+    printf "Running in GitHub Actions.\nNo need to export any keys."
+    exit 0
 else
-    echo "TODO fix this"
     echo "Running on local host"
     echo "Check if gh is installed"
     if ! command -v gh &> /dev/null
