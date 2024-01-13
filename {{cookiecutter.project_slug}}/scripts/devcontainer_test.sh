@@ -23,7 +23,7 @@ devcontainer up --id-label ${id_label} --workspace-folder "${workspace_folder}"
 
 # Run actual test
 echo "(*) Running test..."
-devcontainer exec --workspace-folder "${workspace_folder}" --id-label ${id_label} /bin/sh -c 'set -e; su - vscode; ./scripts/pre_commit.sh'
+devcontainer exec --workspace-folder "${workspace_folder}" --id-label ${id_label} /bin/sh -c 'set -e; ./scripts/pre_commit.sh'
 
 echo "(*) Docker image details..."
 docker images
