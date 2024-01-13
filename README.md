@@ -139,5 +139,3 @@ PowerShell
 
 - [ ] venv needs python version Python 3.12.1 needs to be set everywhere
 - [ ] in the template readme add a section about how to run the app and install requirements
-- [ ] the package name should not be the same as the repo name necessarily
-- [ ] add inilinter to template for mypy.ini

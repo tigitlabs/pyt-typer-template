@@ -41,5 +41,4 @@ jobs:
         # git init is required for act to work
         git init
         # Overwrite the act image as the default one is not working
-        rm .actrc
-        act pull_request -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-22.04
+        ./scripts/act_cicd.sh
