@@ -51,7 +51,14 @@ cookiecutter https://github.com/tigitlabs/pyt-typer-template.git
 
 ### Environment
 
-Designed to work with Github Codespaces
+Designed to work with Github Codespaces and devcontainers.
+To start a devcontainer you can execute script:
+
+```bash
+./scripts/devcontainer_up.sh
+```
+
+This has the advantage of the devcontainer being labeled, making attaching to it easier.
 
 ### Tools
 
