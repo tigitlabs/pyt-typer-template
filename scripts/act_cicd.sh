@@ -30,7 +30,9 @@ debug_print "📂 project root: $project_root"
 
 workflows_dir="$project_root/.github/workflows"
 debug_print "📂 workflows directory: $workflows_dir"
+workflow_file="$workflows_dir/cicd.yml"
 
 act pull_request \
 --platform ubuntu-latest=ghcr.io/catthehacker/ubuntu:runner-22.04 \
+--workflows "$workflow_file" \
 --job cicd
