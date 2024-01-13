@@ -24,6 +24,9 @@ jobs:
         curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
         act --version
 
+    - name: Setup buildx
+      uses: docker/setup-buildx-action@v3
+
     - name: install devcontainer cli
       run: |
         npm install -g @devcontainers/cli
@@ -37,4 +40,6 @@ jobs:
         cd ~/typer-cli-template
         # git init is required for act to work
         git init
-        act pull_request
+        rm .actrc
+        act pull_request -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-22.04
+
