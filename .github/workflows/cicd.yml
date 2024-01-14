@@ -41,7 +41,7 @@ jobs:
 
     - name: Run pyinilint
       run: |
-        pyinilint mypy.ini
+        pyinilint *.ini
 
     - name: Run yamllint
       run: |
@@ -66,4 +66,4 @@ jobs:
     - name: Run pre-commit
       run: |
         # This redundant step is just to make sure that the pre-commit hook is working
-        ./pre-commit.sh
+        ./scripts/pre_commit.sh

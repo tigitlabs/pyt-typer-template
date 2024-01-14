@@ -32,13 +32,18 @@ jobs:
     - name: Install requierments
       run: |
         pip install -r requirements.txt
-    - name: Run markdownlint
-      run: |
-        markdownlint .
 
     - name: Run yamllint
       run: |
         yamllint .
+
+    - name: Run pyinilint
+      run: |
+        pyinilint *.ini
+
+    - name: Run isort
+      run: |
+        isort .
 
     - name: Run black
       run: |
@@ -59,4 +64,4 @@ jobs:
     - name: Run pre-commit
       run: |
         # This redundant step is just to make sure that the pre-commit hook is working
-        ./pre-commit.sh
+        ./scripts/pre_commit.sh

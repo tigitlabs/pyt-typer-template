@@ -3,19 +3,13 @@
 {
   "name": "dev-container",
   "build": {
-    "dockerfile": "./Dockerfile",
+    "dockerfile": "../Dockerfile",
     "context": "."
   },
-  "containerEnv": {
-    "CONDA_ENV_NAME": "typer_template"
-  },
-  "initializeCommand": ".devcontainer/initializeCommand.sh",
-  "postCreateCommand": ".devcontainer/postCreateCommand.sh",
-  "postStartCommand": ".devcontainer/postStartCommand.sh",
   "onCreateCommand": "npm install -g @devcontainers/cli",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": "true",
+      "installZsh": "false",
       "username": "vscode",
       "userUid": "1000",
       "userGid": "1000",
@@ -27,8 +21,6 @@
     "ghcr.io/devcontainers/features/git:1": {
       "version": "latest",
       "ppa": "false"
-    },
-    "ghcr.io/devcontainers/features/python:1": {
     },
     "ghcr.io/devcontainers/features/github-cli:1": {
       "installDirectlyFromGitHubRelease": true,
@@ -47,7 +39,8 @@
       "version": "latest",
       "dockerDashComposeVersion": "v2"
     },
-    // This is needed to install the devconainer-cli
+    "ghcr.io/devcontainers/features/python:1": {
+    },
     "ghcr.io/devcontainers/features/node:1": {}
     },
   "customizations": {

@@ -1,0 +1,21 @@
+---
+
+name: Devcontainer CI/CD
+
+on:
+  pull_request
+
+jobs:
+  build_and_test_devcontainer:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: install devcontainer cli
+      run: |
+        npm install -g @devcontainers/cli
+
+    - name: Build and Test Devcontainer
+      run: |
+        ./scripts/devcontainer_test.sh
