@@ -104,7 +104,7 @@ def test_bake_project(cookies, get_os):
         print("Skipping markdownlint tests on Windows")
     else:
         run_inside_dir("markdownlint .", str(output_path)) == 0
-    run_inside_dir("black .", str(output_path)) == 0
+    run_inside_dir("black . --check", str(output_path)) == 0
     if get_os == OS.WINDOWS:
         # TODO: Add this back when we know how to run it on Windows, line endings are different
         print("Skipping yamllint tests on Windows")

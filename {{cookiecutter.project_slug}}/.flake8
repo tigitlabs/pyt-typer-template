@@ -3,6 +3,7 @@
 exclude =
     .git,
     __pycache__,
+    .venv,
  
 # Ignore specific errors and warnings
 # E.g., E501: line too long, W503: line break before binary operator
