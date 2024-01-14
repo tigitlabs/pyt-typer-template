@@ -24,6 +24,10 @@ jobs:
         curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
         act --version
 
+    - name: install devcontainer cli
+      run: |
+        npm install -g @devcontainers/cli
+
     - name: Create template
       run: |
         cookiecutter . --no-input --output-dir ~/
@@ -31,4 +35,7 @@ jobs:
     - name: Run github actions with act
       run: |
         cd ~/typer-cli-template
-        act pull_request
+        # git init is required for act to work
+        git init
+        # Overwrite the act image as the default one is not working
+        ./scripts/act_cicd.sh

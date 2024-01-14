@@ -51,7 +51,14 @@ cookiecutter https://github.com/tigitlabs/pyt-typer-template.git
 
 ### Environment
 
-Designed to work with Github Codespaces
+Designed to work with Github Codespaces and devcontainers.
+To start a devcontainer you can execute script:
+
+```bash
+./scripts/devcontainer_up.sh
+```
+
+This has the advantage of the devcontainer being labeled, making attaching to it easier.
 
 ### Tools
 
@@ -112,12 +119,30 @@ Dependencies are installed globally in this script during creation.
 
 Install Python venv if not already installed and not running in a Codespace:
 
+bash
+
 ```bash
   # Ensure Python 3.6+ is installed
   # Create a virtual environment
-  python3 -m venv .venv
+  python -m venv .venv
   # Activate the virtual environment
   source source .venv/bin/activate
   # Install requirements
   pip install -r requirements.txt
 ```
+
+PowerShell
+
+```powershell
+  # Create a virtual environment
+  python -m venv .venv
+  # Activate the virtual environment
+  .\.venv\Scripts\activate
+  # Install requirements
+  pip install -r requirements.txt
+```
+
+## TODO
+
+- [ ] venv needs python version Python 3.12.1 needs to be set everywhere
+- [ ] in the template readme add a section about how to run the app and install requirements

@@ -10,7 +10,7 @@ echo "🏃‍♂️ Running yamllint"
 yamllint .
 
 echo "🏃‍♂️ Running pyinilint"
-pyinilint mypy.ini
+pyinilint *.ini
 
 echo "🏃‍♂️ Running isort"
 isort .
@@ -26,4 +26,4 @@ echo "🏃‍♂️ Running mypy"
 mypy --ignore-missing-imports .
 
 echo "🏃‍♂️ Running pytest"
-pytest  tests/test_bake_project.py::test_bake_project
+pytest .
